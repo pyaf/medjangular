@@ -19,6 +19,12 @@ def IndexView(request):
 			return HttpResponse('<h1>Invalid Credentials</h1>')
 	return render(request, template_name)
 
+
+@login_required(login_url='/')
+def DashboardView(request):
+	template_name = 'angular/index.html'
+	return render(request, template_name, {})
+
 def LogoutView(request):
 	logout(request)
 	return redirect('/')

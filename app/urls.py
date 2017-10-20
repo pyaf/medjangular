@@ -6,7 +6,7 @@ from app.views import *
 
 urlpatterns = [
     url(r'^$', IndexView),
-    url(r'^dashboard/', TemplateView.as_view(template_name='angular/index.html')),
+    url(r'^dashboard/', DashboardView),
     url(r'^logout/$', LogoutView),
 
 ]
