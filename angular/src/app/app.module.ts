@@ -7,9 +7,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter'; //importing the module
 import { OrderModule } from 'ngx-order-pipe'; //importing the module
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { DatePipe } from '@angular/common';
-// import { OverlayModule } from "angular-io-overlay";
-// import {DatePickerModule} from 'ng2-datepicker-bootstrap';
-// import { NgDatepickerModule } from 'ng2-datepicker';
+import { SimpleNotificationsModule } from 'angular2-notifications';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MyDatePickerModule } from 'mydatepicker';
 
 import { AppComponent } from './app.component';
@@ -17,7 +16,7 @@ import { AppRoutingModule } from './app.router';
 import { ProductService } from './services/product.service';
 
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { CookieService } from 'angular2-cookie/services/cookies.service';
+import { CookieService } from 'ngx-cookie-service';
 import { TablesComponent } from './components/tables/tables.component';
 
 @NgModule({
@@ -33,7 +32,8 @@ import { TablesComponent } from './components/tables/tables.component';
     AppRoutingModule,
     Ng2SearchPipeModule,
     OrderModule,
-    // OverlayModule,
+    BrowserAnimationsModule,
+    SimpleNotificationsModule.forRoot(),
     NgxPaginationModule,
     MyDatePickerModule
     // DatePickerModule,
