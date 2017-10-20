@@ -16,9 +16,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.router';
 import { ProductService } from './services/product.service';
 
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { LandingComponent } from './components/landing/landing.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CookieService } from 'angular2-cookie/services/cookies.service';
 import { TablesComponent } from './components/tables/tables.component';
@@ -26,9 +23,6 @@ import { TablesComponent } from './components/tables/tables.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    LandingComponent,
     DashboardComponent,
     TablesComponent,
   ],

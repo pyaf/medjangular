@@ -10,12 +10,14 @@ export class TablesComponent implements OnInit {
 
   constructor(public service: ProductService) { }
   public products: JSON;
+  filter_: string;
   ngOnInit(): void {
   	this.service.getProducts()
   	.then((data) => {
   		console.log(data.json());
   		this.products = data.json();
   	})
+
   }
   key: string = 'name'; //set default
   reverse: boolean = false;

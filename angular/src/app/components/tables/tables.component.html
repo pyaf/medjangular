@@ -1,5 +1,5 @@
 <nav class="navbar">
-      <input class="form-control" type="text" placeholder="search" name="search" [(ngModel)]="filter">
+      <input class="form-control" type="text" placeholder="search" name="search" [(ngModel)]="filter_">
 </nav>
 <table class="table table-bordered table-hover">
   <thead>
@@ -25,7 +25,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage:10, currentPage: p }; let i = index">
+    <tr *ngFor="let product of products | orderBy: key : reverse | filter: filter_ | paginate: { itemsPerPage:10, currentPage: p }; let i = index">
       <td>{{product.date}}</td>
       <td>{{product.name}}</td>
       <td>{{product.company}}</td>

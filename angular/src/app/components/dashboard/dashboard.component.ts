@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit {
       .then((data)=>{
           console.log(data);
       })
-      this.button = "Added";
+      this.button = "Add";
   }
   public date = 'asdf';
   get diagnostic() { return JSON.stringify(this.product); }
