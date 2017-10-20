@@ -1,0 +1,41 @@
+<nav class="navbar">
+      <input class="form-control" type="text" placeholder="search" name="search" [(ngModel)]="filter">
+</nav>
+<table class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th (click)="sort('date')">Date
+          <span class="glyphicon sort-icon" *ngIf="key =='date'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+      </th>
+      <th (click)="sort('name')">Name
+          <span class="glyphicon sort-icon" *ngIf="key =='name'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+      </th>
+      <th (click)="sort('company')">Company
+          <span class="glyphicon sort-icon" *ngIf="key =='company'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+      </th>
+      <th (click)="sort('trader')">Trader
+          <span class="glyphicon sort-icon" *ngIf="key =='trader'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+      </th>
+      <th (click)="sort('price')">Price
+          <span class="glyphicon sort-icon" *ngIf="key =='price'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+      </th>
+      <th (click)="sort('batch')">Batch
+          <span class="glyphicon sort-icon" *ngIf="key =='batch'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products | orderBy: key : reverse | filter:filter | paginate: { itemsPerPage:10, currentPage: p }; let i = index">
+      <td>{{product.date}}</td>
+      <td>{{product.name}}</td>
+      <td>{{product.company}}</td>
+      <td>{{product.trader}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.batch}}</td>
+
+
+    </tr>
+  </tbody>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</table>
