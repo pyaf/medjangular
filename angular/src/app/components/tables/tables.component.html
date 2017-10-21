@@ -19,6 +19,9 @@
       <th (click)="sort('price')">Price
           <span class="glyphicon sort-icon" *ngIf="key =='price'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
       </th>
+      <th (click)="sort('discount')">Discount
+          <span class="glyphicon sort-icon" *ngIf="key =='discount'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+      </th>
       <th (click)="sort('batch')">Batch
           <span class="glyphicon sort-icon" *ngIf="key =='batch'" [ngClass]="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
       </th>
@@ -31,11 +34,78 @@
       <td>{{product.company}}</td>
       <td>{{product.trader}}</td>
       <td>{{product.price}}</td>
+      <td>{{product.discount}}</td>
       <td>{{product.batch}}</td>
-
-
+      <button type="button" (click)="showModal(i)" class="btn btn-info btn-sm"><i class="glyphicon glyphicon-edit"></i> </button>
     </tr>
   </tbody>
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 
 </table>
+<div class="modal fade" #modal>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <header class="font-12 bold">Edit this product</header>
+                </div>
+                <div class="modal-body">
+              <form class="form-horizontal"  role="form" #ProductForm="ngForm">
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="name" [(ngModel)]="product.name" placeholder="Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Company</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="company" [(ngModel)]="product.company" placeholder="Company">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Batch No.</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" name="batch" [(ngModel)]="product.batch" placeholder="Batch No">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Trader</label>
+                <div class="col-sm-10">
+                  <input class="form-control" type="text" [(ngModel)]="product.trader" name="trader" placeholder="Trader" >
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Price Rate</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control"name="price_rate" [(ngModel)]="product.price" placeholder="Price Rate">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Discount</label>
+                <div class="col-sm-10">
+                    <input type="number" class="form-control" name="discount" [(ngModel)]="product.discount" placeholder="Discount">
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="col-sm-2 control-label">Date</label>
+                  <div class="col-sm-10" >
+                  <input name="date" class="form-control" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" type="date" [(ngModel)]="product.date">
+                  </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary" (click)="EditProduct()" [disabled]="!ProductForm.form.valid">{{button}}</button>
+                </div>
+              </div>
+            </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger" (click)="DeleteProduct();ProductForm.reset();">Delete</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+    <simple-notifications [options]="options"></simple-notifications>

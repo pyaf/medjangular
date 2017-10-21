@@ -23,4 +23,14 @@ export class ProductService {
 		return this.http.post(url, product, {headers:this.headers}).toPromise();
 	}
 
+
+	editProduct(pk, product): Promise <any>{
+		let url: string = '/api/products/update/'+ pk +'/';
+		return this.http.put(url, product, {headers:this.headers}).toPromise();
+	}
+
+	deleteProduct(pk): Promise <any>{
+		let url: string = '/api/products/delete/' + pk + '/';
+		return this.http.get(url, {headers:this.headers}).toPromise();
+	}
 }
