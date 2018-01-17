@@ -1,5 +1,5 @@
 # medjangular
-A angular+django site for storing medical purchases, built for my uncle who runs a medical store. :) 
+A angular+django site for managing  medical purchases, built for my uncle who runs a medical store. :) 
 
 ### Stack
 
